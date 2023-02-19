@@ -10,7 +10,7 @@
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'shadow']
+        'options' => ['class' => 'navbar-expand-lg navbar-light bg-light shadow']
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
