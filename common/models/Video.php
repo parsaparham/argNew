@@ -93,6 +93,18 @@ class Video extends \yii\db\ActiveRecord
         ];
     }
 
+
+
+    public function getStatusLabels()
+    {
+        return[
+            self::STATUS_UNLISTED => 'Unlisted',
+            self::STATUS_PUBLISHED => 'Published'
+        ];
+    }
+
+
+
     /**
      * Gets query for [[CreatedBy]].
      *
@@ -137,7 +149,7 @@ class Video extends \yii\db\ActiveRecord
 
     public function getVideoLink()
     {
-        return Yii::$app->params['frontendUrl'].'/storage/videos'.$this->video_id.'.mp4';
+        return Yii::$app->params['frontendUrl'].'/storage/videos/'.$this->video_id.'.mp4';
     }
 
 

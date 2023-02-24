@@ -26,18 +26,29 @@ use yii\bootstrap5\ActiveForm;
         </div>
         <div class="col-sm-4">
 
-            <div>
+
+
+            <div class="embed-responsive embed-responsive-16by9">
+                <video class="embed-responsive-item" src="<?= $model->getVideoLink()  ?>" controls></video>
+            </div>
+
+
+
+            <div class="mb-3">
                 <div class="text-muted">Video Link</div>
+                <a href="<?= $model->getVideoLink()  ?>">
+                    Open Video
+                </a>
                 <?= $model->getVideoLink();  ?>
             </div>
 
-            <div>
+            <div class="mb3">
             <div class="text-muted">Video Name</div>
                 <?= $model->video_name;  ?>
             </div>
 
 
-            <?= $form->field($model, 'status')->textInput() ?>
+            <?= $form->field($model, 'status')->dropDownList($model->getStatusLabels()) ?>
         </div>
     </div>
 
