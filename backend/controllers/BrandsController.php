@@ -7,6 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * BrandsController implements the CRUD actions for Brands model.
@@ -79,9 +80,11 @@ class BrandsController extends Controller
     {
         $model = new Brands();
 
+        $model->brandImage=UploadedFile::getInstanceByName('brand');
+
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['update', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -102,6 +105,8 @@ class BrandsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
+        $model->brandImage=UploadedFile::getInstanceByName('brandImage');
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

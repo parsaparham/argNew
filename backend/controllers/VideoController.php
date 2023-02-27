@@ -83,11 +83,6 @@ class VideoController extends Controller
 
         $model->video=UploadedFile::getInstanceByName('video');
 
-        echo "<pre>";
-       // var_dump($model->video);
-        echo "</pre>";
-      //  exit;
-
 
         if ($this->request->isPost) {
                 if (Yii::$app->request->isPost && $model->save()) {
